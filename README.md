@@ -46,7 +46,20 @@ You can reach me at **bucurtomaadrian@gmail.com** or on [LinkedIn](https://www.l
 - **JavaScript**
 
 ## Screenshots
+ ** Welcome Page**
+![welcome screen](https://user-images.githubusercontent.com/102102780/229354295-55e22f1b-099f-4e97-bc4e-22b4db1d3b62.png)
 
+ ** Profile Page**
+![profile page](https://user-images.githubusercontent.com/102102780/229354317-392d37cd-9f17-427e-b049-3aee3a6610de.png)
+
+ ** All Questions Page**
+![all questions page](https://user-images.githubusercontent.com/102102780/229354346-0e91aeb7-f38c-4272-b369-502feb133bce.png)
+
+ ** Users Page**
+![users page](https://user-images.githubusercontent.com/102102780/229354408-9c7cf8cb-79cf-407f-865e-9ccc5cd9646e.png)
+
+ ** Ask Question Page**
+![ask question page](https://user-images.githubusercontent.com/102102780/229354436-7d4a0388-e555-4934-aa54-d472147e1bc6.png)
 
 
 ## Contributing
