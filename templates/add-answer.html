@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %}New answer{% endblock %}
+
+{% block content %}
+
+<form align="center" action="{{ url_for('add_answer', questionid=question_id) }}" method="post" enctype="multipart/form-data">
+    <p>
+        <label for="message">Message:</label><br>
+        <textarea name="message" id="message" cols="30" rows="10"></textarea>
+    </p>
+    <p>
+        <label for="file">File:</label><br>
+        <input type="file" name="File" id="file">
+    </p>
+    <p>
+        <button type="submit">
+            <div class="cool_button_container">
+                <div class="cool_button position_1"></div>
+                <div class="cool_button position_2"></div>
+                <p class="text_position">Answer</p>
+            </div>
+        </button>
+    </p>
+</form>
+
+{% endblock %}

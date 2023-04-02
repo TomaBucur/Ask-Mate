@@ -1,0 +1,56 @@
+Sprint 1/2
+
+Alex
+fancy search results --- done
+search questions --- done
+sort questions --- done
+delete answer&question --- done
+delete tag
+delete comments --- done
+    delete answer comm
+    delete question comm
+tag question
+
+Toma
+display latest questions --- done
+edit answer --- done
+    create edit-answer.html --- done
+edit comments --- done
+edit question --- done
+add comment to question --- done
+add comment to answer --- done
+    create answer.html --- done
+                                        Sprint 3
+
+                                        1.Merge previous sprint
+
+
+                                        TOMA
+                                        2. user registration --- done
+                                        3. user login        --- done
+                                        8. user page         --- in progress
+                                        10.gain reputation   --- done tbu - for answer marked as updated
+                                        12.lose reputation   --- done tbu - for answer marked as updated
+
+                                        ALEX
+                                        4.list users                --- done
+                                        9.accepted answer           --- done
+                                        13. tag page                --- done
+                                        14.filter bonus question    ---
+                                        15.sort bonus question      ---
+
+
+                                        EXTRAS:
+                                        5.bind question to user
+                                        6.bind answer to user
+                                        7.bind comment to user
+
+                                        16.OPTIONAL TASK: 
+                                        Sort bonus questions 
+
+
+
+server: abul.db.elephantsql.com
+user and default database: ybdmtlga
+password: iQQtLG3qlgR9oXW7Rln_kpAJAc4g22cz 
+url: postgres://ybdmtlga:iQQtLG3qlgR9oXW7Rln_kpAJAc4g22cz@abul.db.elephantsql.com/ybdmtlga

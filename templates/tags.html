@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block title %} List of Users {% endblock %}
+
+{% block content %}
+<h1 class="tags_header">Tags</h1><br>
+<div class="tags_list">
+    {% for tag in tags %}
+        <div>
+            <p>Tag: <span>{{ tag['name'] }}</span></p>
+            <p>Popularity: <span>{{ tag['count'] }}</span></p>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

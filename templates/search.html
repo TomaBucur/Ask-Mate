@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+{% block title %}List of questions{% endblock %}
+{% block content %}
+
+    <div class="header">
+        <h1 class="title">List of Questions wich contains "{{ search_by }}"</h1>
+        
+    </div>
+    <table>
+        {% if questions_by_question %}
+            {% for header in questions_by_question[0].keys() %}
+                <th>
+                    <div class="container">
+                    {{ header }}
+                    </div>
+                </th>
+            {% endfor %}
+        {% else %}
+            {% for header in questions_by_answer[0].keys() %}
+                <th>
+                    <div class="container">
+                    {{ header }}
+                    </div>
+                </th>
+            {% endfor %}
+        {% endif %}
+        {% if questions_by_question %}
+            {% for question in questions_by_question %}
+                <tr>
+                    {% for header, value in question.items() %}
+                        <td>
+                            {% if header == "image" %}
+                                <img src="/static/images/{{ value }}" width="40" alt="no icon">
+                            {% elif header == "title" %}
+                                <a href="{{ url_for('display_question', question_id=question['id']) }}">{{ value | safe}}</a>
+                            {% else %}
+                                {{ value | safe }}
+                            {% endif %}
+                        </td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        {% endif %}
+        {% if questions_by_answer %}
+            {% for question in questions_by_answer %}
+                <tr>
+                    {% for header, value in question.items() %}
+                        {% if header != "answer" %}
+                            <td>
+                                {% if header == "image" %}
+                                    <img src="/static/images/{{ value }}" width="40" alt="no icon">
+                                {% elif header == "title" %}
+                                    <a href="{{ url_for('display_question', question_id=question['id']) }}">{{ value }}</a>
+                                    <hr>
+                                    <ul>
+                                        {% for answer in question["answer"] %}
+                                            <li>{{ answer | safe}}</li>
+                                        {% endfor %}
+                                    </ul>
+                                {% elif header!= "answer" %}
+                                    {{ value }}
+                                {% endif %}
+                            </td>
+                        {% endif %}
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        {% endif %}
+    </table>
+{% endblock %}

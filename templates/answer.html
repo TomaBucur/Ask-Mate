@@ -1,0 +1,70 @@
+<!-- trebuie trimis ca la question, lista answers, answer_id si lista comments -->
+{% extends "layout.html" %}
+
+{% block title %} Answer {% endblock %}
+
+{% block content %}
+
+    {% for answer_info in answers %}
+
+        {% if answer_info["id"] == answer_id %}
+            <h2 class="title">Answer message:<br>{{ answer_info.message }}</h2>
+            
+        {% endif %}
+
+    {% endfor %}
+
+    <table>
+        {% for header in answers[0].keys() %}
+
+            {% if header == "submission_time" or header == "message"%}
+                <th>
+                    {{header}}
+                </th>
+            {% endif %}
+
+        {% endfor %}
+
+        {% for comment in comments %}
+        <tr>
+            {% if comment["answer_id"] == answer_id %}
+                
+                {% if comment.submission_time %}
+                    <td>
+                        {{ comment.submission_time }}
+                    </td>
+                {% endif %}
+
+                {% if comment['message'] %}
+                    <td>
+                        {{ comment['message'] }}
+                    </td>
+                {% endif %}
+             
+                <td>
+                    <a href="{{ url_for('delete_comment', comment_id=comment.id) }}">Delete Comment</a>
+                    <hr>
+                    <a href="{{ url_for('edit_comment', comment_id=comment.id) }}" >Edit Comment</a>            
+                </td>
+            {% endif %}        
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{{ url_for('edit_answer', answer_id=answer_id) }}">
+        <div class="cool_button_container">
+            <div class="cool_button position_1"></div>
+            <div class="cool_button position_2"></div>
+            <p class="text_position">Edit Answer</p>
+        </div>
+    </a>
+    <br>
+    <a href="{{ url_for('add_comment_to_answer', answer_id=answer_id) }}">
+        <div class="cool_button_container">
+            <div class="cool_button position_1"></div>
+            <div class="cool_button position_2"></div>
+            <p class="text_position">Add comment</p>
+        </div>
+    </a>
+    
+{% endblock %}
+

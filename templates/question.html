@@ -1,0 +1,143 @@
+{% extends "layout.html" %}
+
+{% block title %}Question and answers{% endblock %}
+
+{% block content %}
+
+    {% for question_info in questions %}
+
+        {% if question_info["id"] == question_id %}
+            <h2 class="title">Question:<br>{{ question_info["title"] }}</h2>
+            <div class="tags_container">
+                <h3 class="tag">Tags:</h3>
+                {% for tag in question_tags%}
+                    <a href="#" class="tag">#{{ tag.name }};</a>
+                {% endfor %}
+            </div>
+            <a href="{{ url_for('add_new_tag', question_id=question_id) }}" class="add_tag_button">Add Tag</a>
+            <h4 class="question_message">Message:<br><br>{{ question_info.message }}</h4>
+        {% endif %}
+
+    {% endfor %}
+
+    <table>
+        {% for header in questions[0].keys() %}
+
+            {% if header == "vote_number" or header == "message" or header == "image" %}
+                <th>
+                    {{header}}
+                </th>
+            {% endif %}
+
+        {% endfor %}
+
+        {% for answer in answers %}
+        <tr {% if answer['acceptance'] %} class="accepted" {% endif %}>
+            {% if answer["question_id"] == question_id %}
+
+                {% if answer['vote_number'] or not answer['vote_number'] %}
+                    <td>
+                        <a href="{{ url_for('upvote_answer', answer_id=answer['id'], question_id=answer['question_id']) }}">+</a>
+                            {{ answer['vote_number'] }}
+                        <a href="{{ url_for('downvote_answer', answer_id=answer['id'], question_id=answer['question_id']) }}">-</a>
+                    </td>
+                    <td>
+                        <a href="{{ url_for('display_answer', answer_id=answer.id)}}">{{ answer['message'] }}</a>
+                    </td>
+                {% endif %}
+
+                {% if answer['image'] or not answer['image'] %}
+                    <td>
+                        <img src="/static/images/{{ answer['image'] }}" width="80" alt="no icon">
+                    </td>
+                {% endif %}
+
+                {% for question_info in questions %}
+                        {% if question_info["id"] == question_id and question_info['user_id'] == user_id %}
+                            {% if answer['acceptance'] %}
+                                <td><a href="{{ url_for('answer_acceptance_state', answer_id=answer.id) }}">Refuze Answer</a></td>
+                            {% else %}
+                                <td><a href="{{ url_for('answer_acceptance_state', answer_id=answer.id) }}">Accept Answer</a></td>
+                            {% endif %}
+                        {% endif %}
+                {% endfor %}
+
+                <td>
+                    <a href="{{ url_for('delete_answer', answer_id=answer.id) }}">Delete Answer</a>
+                    <hr>
+                    <a href="{{ url_for('edit_answer', answer_id=answer.id) }}">Edit Answer</a>
+                </td>
+        </tr>
+            {% endif %}        
+        {% endfor %}
+    </table>
+
+    <div class="buttons_div">
+        <a class="inline_a_tag" href="{{ url_for('edit_question', question_id=question_id) }}">
+            <div class="cool_button_container">
+                <div class="cool_button position_1"></div>
+                <div class="cool_button position_2"></div>
+                <p class="text_position">Edit Question</p>
+            </div>
+        </a>
+        <br>
+        <a class="inline_a_tag" href="{{ url_for('add_answer', questionid=question_id) }}">
+            <div class="cool_button_container">
+                <div class="cool_button position_1"></div>
+                <div class="cool_button position_2"></div>
+                <p class="text_position">Add Answer</p>
+            </div>
+        </a>
+    </div>
+
+    <br>
+    <h2 class="title">Comments</h2>
+    <table>
+        {% for header in comments[0].keys() %}
+
+            {% if header == "submission_time" or header == "message" %}
+                <th>
+                    {{header}}
+                </th>
+            {% endif %}
+
+        {% endfor %}
+        {% for comment in comments %}
+        <tr>
+            {% if comment["question_id"] == question_id %}
+                
+                {% if comment.submission_time %}
+                    <td>
+                        {{ comment.submission_time }}
+                    </td>
+                {% endif %}
+
+                {% if comment['message'] %}
+                    <td>
+                        {{ comment['message'] }}
+                    </td>
+                {% endif %}
+
+                {% if comment['image'] %}
+                    <img src="/static/images/{{ comment['image'] }}" width="2" alt="no icon">
+                {% endif %}
+
+                
+
+                <td>
+                    <a href="{{ url_for('delete_comment', comment_id=comment.id) }}">Delete comment</a>
+                    <hr>
+                    <a href="{{ url_for('edit_comment', comment_id=comment.id) }}">Edit comment</a>
+                </td>
+        </tr>
+            {% endif %}        
+            {% endfor %}
+        </table>
+        <a class="inline_a_tag" href="{{ url_for('add_comment_to_question', question_id=question_id)}}">
+            <div class="cool_button_container">
+                <div class="cool_button position_1"></div>
+                <div class="cool_button position_2"></div>
+                <p class="text_position">Add Comment</p>
+            </div>
+        </a>
+{% endblock %}

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{{ url_for('static', filename='stylesheet.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='background.css') }}">   
+    <title>{% block title %}Ask Mate{% endblock %}</title>
+</head>
+
+<nav class="nav-bar nav-bar-expand-lg navbar-dark bg-dark">
+    <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-targer="#navbar"
+    >
+    <span class="navbar-toggler-icon"></span>
+    </button>
+    {% if session['username']%}
+        <div align="left">
+            Logged in as <b><a href="/user">{{ session['username']}}</a></b>
+            <br>
+            <a id="logout" href="/logout">Log Out</a>
+        </div>
+        <div align="center" class="collapse navbar-collapse" id="navbar">
+            
+            <div  class="navbar-nav">
+                <a class="nav-item nav-link"  id="user" href="/user">My Profile</a> |
+                <a class="nav-item nav-link"  id="add-question" href="/add-question">Add Question</a> |
+                <a class="nav-item nav-link"  id="list-of-questions" href="/list">All Questions</a> |
+                <a class="nav-item nav-link"  id="users" href="/users">All Users</a> |
+                <a class="nav-item nav-link"  id="users" href="/bonus-question">!Bonus Questions!</a>
+                
+                
+                <!-- trebuie sa schimbam aici bara de search pe dreapta si sa facem meniul calumea -->
+                <div class="header">               
+                    <form class="search_box_container" action="search">
+                        <input type="text" name="q" id="q">
+                        <button type="submit">SEARCH</button>
+                    </form>
+                </div>
+            </div>
+        {% else %}
+            <div align="center" class="navbar-nav">
+                <h2>ASK, MATE! 
+                    <br>
+                    ANYTHING, EVERYTHING, HELP OTHERS</h2>
+                    <hr>
+                     
+        {% endif %}
+        </div>
+        </nav>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+    {% for category, message in messages %}
+        {% if category == 'error' %}
+        <div class="alert alert-danger alter-dismissable fade show" role="alert">
+            {{message}}
+
+            <button type="button" class="close" data-dismiss="alert">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        {% else %}
+        <div class="alert alert-success alter-dismissable fade show" role="alert">
+            {{message}}
+
+            <button type="button" class="close" data-dismiss="alert">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        {% endif %}
+    {% endfor %}
+{% endif %}
+{% endwith %}
+
+<body>
+    {% block content %}{% endblock %}
+    <div class="bubbles">
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+    </div>
+</body>
+</html>

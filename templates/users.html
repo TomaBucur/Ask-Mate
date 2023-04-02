@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block title %} List of Users {% endblock %}
+
+{% block content %}
+
+<table>
+    {% for header in users[0].keys() %}
+        <th>{{ header }}</th>
+    {% endfor %}
+    {% for user in users %}
+        <tr>
+            {% for key, value in user.items() %}
+                <td>{{ value }}</td>
+            {% endfor %}
+        </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

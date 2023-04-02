@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}New Question{% endblock %}
+
+{% block content %}
+
+<form align="center"
+action="add-question" method="post" enctype="multipart/form-data">
+    <label for="title">Title:</label><br>
+    <input type="text" name="title" id="title"><br>
+    <label for="question">Message:</label><br>
+    <textarea type="file" name="question" id="file" rows="10" cols="30"></textarea>
+    <br>
+    <p>
+        <label for="file">File:</label><br>
+        <input type="file" name="File" id="file">
+    </p>
+    <br>
+    <button type="submit">
+        <div class="cool_button_container">
+            <div class="cool_button position_1"></div>
+            <div class="cool_button position_2"></div>
+            <p class="text_position">Send Question!</p>
+        </div>
+    </button>
+</form>
+
+{% endblock %}

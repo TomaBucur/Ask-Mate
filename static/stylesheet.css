@@ -1,0 +1,256 @@
+* {
+  box-sizing: border-box;
+}
+
+.wakawaka{
+  background-color: rgba(215, 44, 41, 0.8);
+  color:  rgb(0,0,0);
+  display: block;
+  margin-left: 45px;
+  padding: 20px;
+  width: fit-content;
+  border-radius: 25px;
+  box-shadow: 4px 2px 5px rgba(0, 0, 0, 0.2);
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5%;
+  margin-top: 7%;
+  text-align:end;
+}
+
+
+
+/* body {
+  background-color: #e7d6bb;
+} */
+.buttons_div{
+  display: flex;
+  
+}
+
+
+.inline_a_tag{
+  display: inline-block;
+  width: auto;
+}
+
+.question_message {
+  margin: 0 auto;
+  width: 90vw;
+  background-color: transparent;
+  color: rgb(136,128,148);
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+  font-weight: 100;
+  padding: 20px;
+  border-radius: 25px;
+  letter-spacing: 1px;
+}
+.title {
+  background-color: rgba(215, 44, 41, 0.8);
+  color:  rgb(0,0,0);
+  display: block;
+  margin-left: 45px;
+  padding: 20px;
+  width: fit-content;
+  border-radius: 25px;
+  box-shadow: 4px 2px 5px rgba(0, 0, 0, 0.2);
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: separate;
+  border-spacing: 10px 10px;
+  width: 100%;
+}
+
+.bubbles {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+}
+
+td, th {
+  box-shadow: 4px 2px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  text-align: left;
+  padding: 8px;
+}
+tr:nth-child(even) {
+  background-color:rgba(255,219,109, 0.85);
+}
+
+tr:nth-child(odd) {
+  background-color: rgba(31,176,178, 0.85);
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+}
+
+.arrow {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}
+.down {
+  transform: rotate(45deg)
+}
+.up {
+  transform: rotate(-135deg)
+}
+button {
+  background-color: transparent;
+  border: none;
+}
+.cool_button_container {
+  margin: 20px auto 20px 50px;
+  width: 110px;
+  height: 50px;
+  position: relative;
+}
+.cool_button {
+  width: 65px;
+  height: 60px;
+  position: absolute;
+  z-index: -1;
+  transform: rotate(45deg);
+  transition: all 0.5s;
+  border-radius: 15%;
+  box-shadow: 4px 2px 5px rgba(0, 0, 0, 0.2);
+}
+.position_1 {
+  background-color: #67bbf3;
+  left: 0;
+}
+.position_2 {
+  background-color: #e68e2b;
+  right: 0;
+}
+.text_position {
+  margin-left: -3px;
+  text-align: center;
+  line-height: 55px;
+  color: white;
+}
+a {
+  text-decoration: none;
+}
+.cool_button_container:hover > .cool_button {
+  transform: rotate(0deg);
+}
+.cool_button_container:hover > .position_2 {
+  background-color: #67bbf3;
+}
+.cool_button_container:active {
+  transform: scale(95%);
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.search_box_container {
+  background-color: #67bbf3;
+  height: fit-content;
+  margin-right: 200px;
+  margin-bottom: 25px;
+  align-self: flex-end;
+}
+
+.highlight {
+  background-color: yellow;
+}
+
+.tags_container {
+  background-color: #dd5025;
+  border-radius: 15px;
+  padding: 7px;
+  margin-left: 50px;
+  width: fit-content;
+  margin-bottom: 20px;
+}
+.tag {
+  display: inline;
+}
+.add_tag_button {
+  border-radius: 15px;
+  padding: 7px;
+  margin-left: 50px;
+  width: fit-content;
+  background-color: gray;
+  text-decoration: underline;
+}
+.existent_tag_button {
+  padding: 7px;
+  background-color: rgba(178, 33, 31, 0.8);
+  color:  rgb(0,0,0);
+  border-radius: 15px;
+  border: 1px solid black;
+  min-width: 50px;
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  margin: 0;
+}
+.existent_tag_container {
+  margin-left: 50px;
+}
+.tag_action_container {
+  
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.accepted {
+  background-color: lightgreen !important;
+}
+
+.link_to_tag_page {
+  text-align: center;
+  position: relative;
+  left: 50%;
+  margin-left: -35px;
+}
+.tags_header {
+  text-align: center;
+}
+.tags_list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  justify-items: center;
+}
+.tags_list div {
+  margin: 50px;
+  text-align: center;
+  border-radius: 15px;
+  width: 150px;
+}
+.tags_list div:nth-child(even) {
+  background-color: #dd5025;
+}
+.tags_list div:nth-child(odd) {
+  background-color: #ddd425
+;
+}
+
+@media only screen and (max-width: 1000px) {
+  .tags_list {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .tags_list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media only screen and (max-width: 460px) {
+  .tags_list {
+    grid-template-columns: 1fr;
+  }
+}

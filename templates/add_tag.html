@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block title %}New comment{% endblock %}
+
+{% block content %}
+
+<div class="tag_action_container">
+    <div>
+        <form action="new-tag" method="post">
+            <input type="hidden" name="action" value="create_new_tag">
+            <input type="hidden" name="question_id" value="{{ question_id }}">
+
+            <label for="tag_name"><h1 style="color:black;">Add New Tag</h1></label><br>
+            <input type="text" name="tag_name" id="tag_name">
+            <br>
+            <button type="submit">
+                <div style="margin-left:25px" class="cool_button_container">
+                    <div class="cool_button position_1"></div>
+                    <div class="cool_button position_2"></div>
+                    <p class="text_position">Add Tag</p>
+                </div>
+            </button>
+        </form>
+    </div>
+
+    <div>
+        <h1 style="color:black;">Choose From Other tags:</h1>
+        <form action="new-tag" method="post" class="existent_tag_container">
+            <input type="hidden" name="action" value="add_existent_tag">
+            {% for tag in existent_tags %}
+                <input type="hidden" value="{{ question_id }}" name="question_id">
+                <button class="existent_tag_button" type="submit" name="tag_id" value="{{ tag.id }}">{{ tag.name }}</button>
+            {% endfor %}
+        </form>
+    </div>
+</div>
+
+<h1 style="color:black;">Question tags:</h1>
+<form action="new-tag" method="post" class="existent_tag_container">
+    <input type="hidden" name="action" value="delete_tag">
+    {% for tag in question_tags %}
+        <input type="hidden" name="question_id" value="{{ question_id }}">
+        <button name="tag_id" value="{{ tag.id }}" type="submit" class="existent_tag_button">{{ tag.name }}</button>
+    {% endfor %}
+</form>
+{% endblock %}

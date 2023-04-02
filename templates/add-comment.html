@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}New comment{% endblock %}
+
+{% block content %}
+
+<form align="center" action="new-comment" method="post" enctype="multipart/form-data">
+
+    <label for="comment">Comment:</label><br>
+    <textarea name="comment" id="comment" rows="10" cols="30"></textarea>
+
+    <br>
+    <button type="submit">
+        <div class="cool_button_container">
+            <div class="cool_button position_1"></div>
+            <div class="cool_button position_2"></div>
+            <p class="text_position">Add comment</p>
+        </div>
+    </button>
+</form>
+{% endblock %}

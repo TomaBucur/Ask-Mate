@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% block title %} Register {% endblock %}
+
+{% block content %}
+<a class="link_to_tag_page" href="{{ url_for('list_tags') }}">Tags page</a>
+<div class="wakawaka">
+<form action="login" method="post" enctype="multipart/form-data">
+
+    <h1 align="center">Log In</h1>
+
+    <div class="form-group">
+        <label for="email">Email address</label>
+        <input type="email" 
+            class="form-control" 
+            id="email" 
+            name="email" 
+            placeholder="Enter email">      
+    </div>
+    <br>
+    <div class="form-group">
+        <label for="password1">Password</label>
+        <input type="password1" 
+            class="form-control" 
+            id="password" 
+            name="password" 
+            placeholder="Enter password">      
+    </div>
+    <br>
+    <button align="center" type="submit">
+        <div class="cool_button_container">
+            <div class="cool_button position_1"></div>
+            <div class="cool_button position_2"></div>
+            <p class="text_position">Log In</p>
+        </div>
+    </button>
+    <div align="left">Are you new around here? <a href="/register">Register</a></div>
+</form>
+</div>
+{% endblock %}

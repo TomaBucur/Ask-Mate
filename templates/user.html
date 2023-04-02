@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+
+{% block title %} Profile of {{ session['username'] }} {% endblock %}
+
+{% block content %}
+<h1 align="center">Profile of <u>{{ session['username'] }}</u> </h1>
+
+<table class="user_profile">
+    <!-- <th>
+        option
+    </th>
+    <th>
+        value
+    </th> -->
+    <tr>
+        <td>
+           Name
+        </td>
+        <td>
+            {{session['username']}}
+        </td>
+        <td>
+            <input placeholder="Insert new username" >
+            <!-- <button type="submit" class> Change username</button> -->
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            E-mail
+        </td>
+        <td>
+            {{session['email']}}
+        </td>
+        <td>
+            <input placeholder="Insert new email" >
+        </td>
+    </tr> 
+
+    <tr>
+        <td>
+            Reputation
+        </td>
+        <td>
+           {{ session['reputation']}}
+        </td>
+    </tr>
+    
+    <tr>
+        <td>
+            Registration date
+        </td>
+        <td>
+           {{ session['registration_date']}}
+        </td>
+    </tr>
+</table>
+<button type="submit">
+    <div class="cool_button_container">
+        <div class="cool_button position_1"></div>
+        <div class="cool_button position_2"></div>
+        <p class="text_position">Save changes</p>
+    </div>
+</button>
+{% endblock %}

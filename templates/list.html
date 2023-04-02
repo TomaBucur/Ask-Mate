@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+{% block title %}List of questions{% endblock %}
+{% block content %}
+
+    
+    <table>
+        {% for header in questions[0].keys() %}
+            <th>
+                <div class="container">
+                {{ header }}
+                    <div class="container">
+                        <form action="list" method="GET">
+                            <input type="hidden" name="order_by" value="{{ header }}" >
+                            <button value="order_up" name="order_direction" type="submit"><i class="arrow up"></i></button>
+                        </form>
+                        <form action="list" method="GET" class="container">
+                            <input type="hidden" name="order_by" value="{{ header }}" >
+                            <button value="order_down" name="order_direction" type="submit"><i class="arrow down"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </th>
+        {% endfor %}
+        {% for question in questions %}
+            <tr>
+                {% for header, value in question.items() %}
+                    <td>
+                        {% if header == "image" %}
+                            <img src="/static/images/{{ value }}" width="80" alt="no icon">
+                        {% elif header == "title" %}
+                            <a href="{{ url_for('display_question', question_id=question['id']) }}">{{ value }}</a>
+                        {% elif header == "vote_number" %}
+                            <a href="{{ url_for('upvote_question', question_id=question.id) }}">+</a>
+                            {{ question.vote_number }}
+                            <a href="{{ url_for('downvote_question', question_id=question.id) }}">-</a>
+                        {% else %}
+                            {{ value }}
+                        {% endif %}
+                    </td>
+                    {% if header == "image" %}
+                        <td>
+                            <a href="{{ url_for('add_answer', questionid=question.id) }}">Add an answer</a>
+                            <hr>
+                            <a href="{{ url_for('delete_question', question_id=question.id) }}">Delete question</a>
+                            <hr>
+                            <a href="{{ url_for('add_comment_to_question', question_id=question.id)}}">Add comment</a>
+                        </td>
+                    {% endif %}
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </table>
+    <a href="{{ url_for('add_question') }}">
+        <div class="cool_button_container">
+            <div class="cool_button position_1"></div>
+            <div class="cool_button position_2"></div>
+            <p class="text_position">Add Question</p>
+        </div>
+    </a>
+{% endblock %}
